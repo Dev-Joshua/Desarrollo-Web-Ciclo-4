@@ -4,8 +4,16 @@ import { Container, Form, Button } from "react-bootstrap";
 export default class login extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      usuario: "",
+      pass: "",
+    };
   }
-  state = {};
+  //Creo un metodo para generar iniciar sesion
+  iniciarSesion() {
+    alert("Boton de Iniciar Sesión");
+  }
+
   render() {
     return (
       <Container
@@ -24,10 +32,12 @@ export default class login extends React.Component {
               Email
             </Form.Label>
             <Form.Control
-              type="email"
+              //Proceso para capturar el dato(usuario)
+              onChange={(e) => this.setState({ usuario: e.target.value })}
               placeholder="User"
               style={{ fontSize: "12px" }}
             />
+            {/* {this.state.usuario} */}
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -38,12 +48,18 @@ export default class login extends React.Component {
               type="password"
               placeholder="Password"
               style={{ fontSize: "12px" }}
+              onChange={(e) => this.setState({ pass: e.target.value })}
             />
+            {/* {this.state.pass} */}
           </Form.Group>
           <Button
-            variant="primary"
+            variant="success"
             type="submit"
             style={{ marginTop: 20, width: "100%" }}
+            //Cuando le de click haga algo con ese evento
+            onClick={() => {
+              this.iniciarSesion();
+            }}
           >
             Iniciar Sesión
           </Button>
