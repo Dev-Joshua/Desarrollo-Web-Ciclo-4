@@ -11,6 +11,7 @@
   padding: 30px;
   border-radius: 10px;
 }
+#login-container h2,
 #login-container button,
 #login-container form {
   width: 100%;
